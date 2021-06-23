@@ -9,8 +9,6 @@ public class Endereco {
 	private String cidade;
 	public String estado;
 	public int cep;
-
-
 	private String enderecos;
 
 	
@@ -21,12 +19,10 @@ public class Endereco {
 		this.estado = estado;
 		this.cep = cep;
 	}
-
-
 	
 	public String getEndereco() {
 		if(this.enderecos.length() == 0) {
-			return ("NÃ£o existe nenhum local disponÃ­vel por aqui, tente novamente mais tarde.");
+			return ("Não existe nenhum local disponível por aqui, tente novamente mais tarde.");
 		}else {
 			return (this.enderecos);
 		}
