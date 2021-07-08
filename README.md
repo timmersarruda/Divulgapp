@@ -1,5 +1,5 @@
 # Divulgapp
-Sistema de promoção de eventos 
+Sistema de gestão de eventos 
 Consiste em em uma plataforma que proporcina praticidade e facilidade em procurar, alugar locais ou até mesmo promover um evento.
 Ao entrar na plataforma, você poderá se cadastrar e ter a oção de escolha para o perfil e finalidade desejada.
 Podemos separar os usuários em 3 categorias, que são elas: Usuário Normal, Usuário Promoter e Usuário Locador.
