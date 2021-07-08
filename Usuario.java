@@ -1,20 +1,24 @@
 package br.timmers;
 
-public abstract class Usuario {
+public class Usuario  {
 
 	private String nome;
 	private int idade;
 	private String cpf;
 	private String email;
-	private CategoriaUsuario categoria;
+	protected CategoriaUsuario categoria;
 	
-	public abstract String getId();
 	
-	public Usuario(String nome, int idade,String cpf, String email) {		
+	public Usuario(String nome, int idade,String cpf, String email, CategoriaUsuario categoria) {		
 		this.setNome(nome);
 		this.setIdade(idade);
 		this.setCpf(cpf);
 		this.setEmail(email);
+		this.setCategoria(categoria);
+	}
+	
+	public String toString() {
+		return "Usuário com os respectivos dados" + nome + idade + cpf + email + categoria + " Foi cadastrado com sucesso!";
 	}
 
 	public String getNome() {
@@ -49,7 +53,13 @@ public abstract class Usuario {
 		this.email = email;
 	}
 			
+	public CategoriaUsuario getCategoria() {
+		return this.categoria;
+	}
 	
-	
+	public void setCategoria(CategoriaUsuario categoria) {
+		this.categoria = categoria;
+	}
+
 	
 }

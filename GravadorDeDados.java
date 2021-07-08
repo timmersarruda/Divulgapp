@@ -1,4 +1,5 @@
 package br.timmers;
+ 
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 
-public class GravadorDeDados extends SistControleDeUsuario{
+public class GravadorDeDados {
 
 	public static final String ARQUIVO_USUARIOS = "usuarios.txt";
 	
@@ -33,3 +34,4 @@ public class GravadorDeDados extends SistControleDeUsuario{
 	}
 	
 }
+
