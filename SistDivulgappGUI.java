@@ -45,7 +45,8 @@ public class SistDivulgappGUI extends JFrame {
 		menuCadastrarUsuario.addActionListener(new SistControllerCadastro(this.sistema,this));
 		
 		JMenu menuPesquisarPromoter = new JMenu("Exibir Promoters");
-		JMenuItem menuExibirUsuarioPromoter = new JMenuItem("Pesquisar Usuario Promoters");
+		JMenuItem menuExibirPromoter = new JMenuItem("Pesquisar Usuario Promoter");
+		menuPesquisarPromoter.add(menuExibirPromoter);
 		menuPesquisarPromoter.addActionListener(new SistControllerListaPromoters(this.sistema,this));
 		
 		JMenu menuPesquisarLocais = new JMenu("Exibir Locais disponíveis");

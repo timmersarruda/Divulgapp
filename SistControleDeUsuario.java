@@ -2,44 +2,26 @@ package br.timmers;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JOptionPane;
 
 public class SistControleDeUsuario implements SistInterfacePrincipal {
 	
 	private List<Usuario> usuarios;
 	private List<Promoter> promoters;
 	private List<Locador> locadores;
-	private GravadorDeDados gravador;
 
 
 	public SistControleDeUsuario() {
 		this.usuarios = new ArrayList<>();
 		this.promoters = new ArrayList<>();
 		this.locadores = new ArrayList<>();
-		this.gravador = new GravadorDeDados();
-		this.recuperarDados();
-		
 	}
 	
 	public void recuperarDados() {
-		try {
-			this.usuarios = this.gravador.recuperarUsuarios();
-		} catch (IOException e) {
-			JOptionPane.showInternalMessageDialog(null, "Erro ao recuperar dados:"+e.getMessage());
-		}
+
 	}
 	
-	public void salvarDados() {
-		try {
-			this.gravador.gravarUsuarios(usuarios);
-		} catch (IOException e) {
-			System.out.println("Erro ao salvar:"+e.getMessage());
-		}
-	}
 	
 	@Override
 	public boolean estahCadastrado(String cpf) {
@@ -82,6 +64,32 @@ public class SistControleDeUsuario implements SistInterfacePrincipal {
 			this.usuarios.add(usuario);
 			return true;
 		}
+	}
+	
+	@Override
+	public List<Promoter> pesquisarPromoter(String nome, int idade, String cpf, String email, CategoriaUsuario categoria, List<Endereco> endereco) {
+		if(this.estahCadastrado(cpf)) {
+			return (this.getPromoters());
+		}else {
+			return erroPesquisa2();
+		}
+	}
+	
+	private List<Promoter> erroPesquisa2() {
+		return (fail("Não foi possivel encontrar locadores, tente novamente mais tarde."));
+	}
+	
+	@Override
+	public List<Usuario> pesquisarUsuario(String nome, int idade, String cpf, String email, CategoriaUsuario categoria) {
+		if(this.estahCadastrado(cpf)) {
+			return (this.getUsuarios());
+		}else {
+			return erroPesquisa1();
+		}
+	}
+	
+	private List<Usuario> erroPesquisa1() {
+		return (fail("Não foi possivel encontrar locadores, tente novamente mais tarde."));
 	}
 	
 	@Override
@@ -133,9 +141,10 @@ public class SistControleDeUsuario implements SistInterfacePrincipal {
 		this.locadores = locadores;
 	}
 	
+	public void salvarDados() {
+		
+	}
 	
-
-
-
-
 }
+
+

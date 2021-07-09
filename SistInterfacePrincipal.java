@@ -8,15 +8,21 @@ public interface SistInterfacePrincipal {
 
 	boolean cadastrarUsuario(String nome, int idade, String cpf, String email, CategoriaUsuario categoria);
 
+	List<Usuario> pesquisarUsuario(String nome, int idade, String cpf, String email, CategoriaUsuario categoria);
+	
 	boolean cadastrarPromoter(String nome, int idade, String cpf, String email, CategoriaUsuario categoria,
 			String cnpj);
+	
+	List<Promoter> pesquisarPromoter(String nome, int idade, String cpf, String email, CategoriaUsuario categoria,
+			List<Endereco> endereco);
 	
 	boolean cadastrarLocador(String nome, int idade, String cpf, String email, CategoriaUsuario categoria,
 			List<Endereco> endereco);
 	
 	List<Locador> pesquisarLocador(String nome, int idade, String cpf, String email, CategoriaUsuario categoria,
 			List<Endereco> endereco);
-
+		
+	
 	CategoriaUsuario getCategoriaUsuario(CategoriaUsuario categoria);
 
 	List<Usuario> getUsuarios();
@@ -30,6 +36,11 @@ public interface SistInterfacePrincipal {
 	List<Locador> getLocadores();
 
 	void setLocadores(List<Locador> locadores);
+
+
+	
+
+	
 
 	
 
