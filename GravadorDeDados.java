@@ -28,7 +28,7 @@ public class GravadorDeDados {
 	public List<Usuario> recuperarUsuarios() throws IOException{
 		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(ARQUIVO_USUARIOS))){
 			return (List<Usuario>) in.readObject();
-		}catch(Exception e) {
+		}catch(ClassNotFoundException e) {
 			throw new IOException(e);
 		}
 	}

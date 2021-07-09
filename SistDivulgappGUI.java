@@ -10,8 +10,12 @@ import java.awt.*;
 
 public class SistDivulgappGUI extends JFrame {
 	
+
+	private static final long serialVersionUID = 1L;
+
+
 	public static void main(String [] args) {
-		JFrame janelaPrincipal = new JFrame();
+		JFrame janelaPrincipal = new SistDivulgappGUI();
 		janelaPrincipal.setVisible(true);
 		janelaPrincipal.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -19,7 +23,7 @@ public class SistDivulgappGUI extends JFrame {
 	
 	JLabel linha1, linha2;
 	ImageIcon eventImg = new ImageIcon("./img/EventImg.jpeg");
-	SistControleDeUsuario sistema = new SistControleDeUsuario();
+	SistInterfacePrincipal sistema = new SistControleDeUsuario();
 	JMenuBar barraDeMenu = new JMenuBar();
 	
 	
@@ -34,16 +38,15 @@ public class SistDivulgappGUI extends JFrame {
 		linha1.setForeground(Color.BLACK);
 		linha1.setFont(new Font("Serif", Font.BOLD, 20));
 		setLayout(new GridLayout(4,1));
-		add(linha1);
-		add(new JLabel());
 		
 		JMenu menuCadastrar = new JMenu("Cadastre-se");
 		JMenuItem menuCadastrarUsuario = new JMenuItem("Cadastrar usuario");
 		menuCadastrar.add(menuCadastrarUsuario);
+		menuCadastrarUsuario.addActionListener(new SistControllerCadastro(this.sistema,this));
 		
 		JMenu menuPesquisarPromoter = new JMenu("Exibir Promoters");
 		JMenuItem menuExibirUsuarioPromoter = new JMenuItem("Pesquisar Usuario Promoters");
-		menuPesquisarPromoter.add(menuExibirUsuarioPromoter);
+		menuPesquisarPromoter.addActionListener(new SistControllerListaPromoters(this.sistema,this));
 		
 		JMenu menuPesquisarLocais = new JMenu("Exibir Locais disponíveis");
 		JMenuItem menuExibirLocais = new JMenuItem("Pesquisar local disponível");
@@ -58,7 +61,9 @@ public class SistDivulgappGUI extends JFrame {
 		barraDeMenu.add(menuPesquisarPromoter);
 		barraDeMenu.add(menuExibirLocais);
 		barraDeMenu.add(menuExibirEvento);
-		
+		add(barraDeMenu);
+		add(linha1);
+		add(new JLabel());
 		
 	}
 	

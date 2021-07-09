@@ -23,22 +23,9 @@ class SistControleDeUsuarioTest {
 */
 	@Test
 	void testaCadastro() {
-		SistControleDeUsuario sistema = new SistControleDeUsuario();
+		SistInterfacePrincipal sistema = new SistControleDeUsuario();
 		assertFalse(sistema.estahCadastrado("123"));
 		boolean cadastrou = sistema.cadastrarUsuario("Jõao", 32, "123", "x@y", CategoriaUsuario.ATIVO);
 		assertTrue(cadastrou);
 	}
 }
-/*
-	@Test
-	void testGetCategoria() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testIsCadastrado() {
-		fail("Not yet implemented");
-	}
-
-}
-*/
